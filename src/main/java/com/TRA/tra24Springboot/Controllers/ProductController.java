@@ -4,9 +4,7 @@ import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Models.ProductDetails;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -16,7 +14,7 @@ public class ProductController {
     Product globalProduct = new Product();
 
     @PostMapping("add")
-    public Product addProduct(){
+    public Product addProduct() {
 
         Product product = new Product();
 
@@ -43,18 +41,18 @@ public class ProductController {
     }
 
     @PostMapping("delete/{id}")
-    public String deleteProduct(@PathVariable Integer id){
+    public String deleteProduct(@PathVariable Integer id) {
 
-            if(globalProduct.getId().equals(id)){
-                globalProduct.setIsActive(Boolean.FALSE);
-                System.out.println(globalProduct.toString());
+        if (globalProduct.getId().equals(id)) {
+            globalProduct.setIsActive(Boolean.FALSE);
+            System.out.println(globalProduct.toString());
 
         }
         return "Success!";
     }
 
     @PutMapping("update")
-    public Product updateProduct(@RequestBody Product userProduct){
+    public Product updateProduct(@RequestBody Product userProduct) {
 
 
         ProductDetails pd = userProduct.getProductDetails();
@@ -66,8 +64,9 @@ public class ProductController {
         globalProduct = userProduct;
         return globalProduct;
     }
+
     @GetMapping("get")
-    public  Product reportProduct(){
-        return  globalProduct;
+    public Product reportProduct() {
+        return globalProduct;
     }
 }
