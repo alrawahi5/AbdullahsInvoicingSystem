@@ -31,6 +31,19 @@ public class EmployeeController {
         return employee;
     }
 
+    @PostMapping("delete/{id}")
+    public String deleteEmployee(@PathVariable Integer id){
+
+        if(employee.getId().equals(id)){
+            employee.setIsActive(Boolean.FALSE);
+            System.out.println(employee.toString());
+
+        }
+        return "Success!";
+    }
+
+    
+
 
 
 }
