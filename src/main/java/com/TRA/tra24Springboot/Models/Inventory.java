@@ -15,7 +15,4 @@ public class Inventory extends BaseEntity {
     String phoneNumber;
     String openingHours;
     String closingHours;
-
-
-
 }
