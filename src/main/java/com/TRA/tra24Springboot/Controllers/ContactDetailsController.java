@@ -41,7 +41,7 @@ public class ContactDetailsController {
     }
 
     @PutMapping("update-contact")
-    public ContactDetails updateProduct(@RequestBody ContactDetails contactDetails){
+    public ContactDetails updateContactDetails(@RequestBody ContactDetails contactDetails){
 
         String cttEmail = contactDetails.getEmail();
         String cttPhoneN = contactDetails.getPhoneNumber();
