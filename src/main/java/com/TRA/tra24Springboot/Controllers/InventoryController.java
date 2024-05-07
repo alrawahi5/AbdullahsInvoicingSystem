@@ -3,9 +3,7 @@ package com.TRA.tra24Springboot.Controllers;
 import com.TRA.tra24Springboot.Models.Inventory;
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Models.ProductDetails;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -37,5 +35,16 @@ public class InventoryController {
         globalinventory = inventory;
 
         return inventory;
+    }
+
+    @PostMapping("delete/{id}")
+    public String deleteInventory(@PathVariable Integer id) {
+
+        if (globalinventory.getId().equals(id)) {
+            globalinventory.setIsActive(Boolean.FALSE);
+            System.out.println(globalinventory.toString());
+
+        }
+        return "Success!";
     }
 }
