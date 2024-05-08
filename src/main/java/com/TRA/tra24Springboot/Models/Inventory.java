@@ -1,10 +1,12 @@
 package com.TRA.tra24Springboot.Models;
 
+import jakarta.persistence.Entity;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
+@Entity
 public class Inventory extends BaseEntity {
 
     List<Product> products;
