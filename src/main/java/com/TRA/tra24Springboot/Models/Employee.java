@@ -1,11 +1,13 @@
 package com.TRA.tra24Springboot.Models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Data
 @Entity
+@MappedSuperclass
 public class Employee extends BaseEntity {
 
     @OneToOne
