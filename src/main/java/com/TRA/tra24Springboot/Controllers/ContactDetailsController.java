@@ -3,8 +3,12 @@ package com.TRA.tra24Springboot.Controllers;
 import com.TRA.tra24Springboot.Models.ContactDetails;
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Models.ProductDetails;
+import com.TRA.tra24Springboot.Models.User;
+import com.TRA.tra24Springboot.Repository.ContactDetailsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -13,6 +17,8 @@ import java.util.Date;
 public class ContactDetailsController {
 
     ContactDetails contactDetails = new ContactDetails();
+    @Autowired
+    ContactDetailsRepository contactDetailsRepository;
 
     @GetMapping("add")
     public ContactDetails addContactDetails(){
@@ -25,8 +31,12 @@ public class ContactDetailsController {
         contactDetails1.setAddress("Muscat, 124 rd");
         contactDetails1.setPostalCode("000000000");
 
+        User user = new User();
+
         contactDetails = contactDetails1;
-        return contactDetails;
+        Arrays.asList(contactDetails1);
+       return contactDetailsRepository.save(contactDetails1);
+        //return contactDetails;
     }
 
     @PostMapping("delete/{id}")
