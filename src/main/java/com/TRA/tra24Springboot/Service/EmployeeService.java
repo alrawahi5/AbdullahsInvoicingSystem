@@ -61,4 +61,9 @@ public class EmployeeService {
 
         return employeeRepository.save(employee);
     }
+
+    public  Employee  reportEmployee(Employee employee){
+        //System.out.println("The report of the Emplpyee controller is as follows: ");
+        return  employeeRepository.save(employee);
+    }
 }

@@ -36,8 +36,8 @@ public class EmployeeController {
     }
 
     @GetMapping("get")
-    public  Employee  reportEmployee(){
+    public  Employee  reportEmployee(Employee employee){
         //System.out.println("The report of the Emplpyee controller is as follows: ");
-        return  employee;
+        return  employeeService.reportEmployee(employee);
     }
 }
