@@ -4,8 +4,12 @@ import com.TRA.tra24Springboot.Models.ContactDetails;
 import com.TRA.tra24Springboot.Repository.ContactDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Arrays;
+import java.util.Date;
+
 @Service
 public class ContactDetailsService {
     @Autowired
@@ -30,5 +34,24 @@ public class ContactDetailsService {
             System.out.println(contactDetails.toString());
         }
         return "Success";
+    }
+
+    public ContactDetails updateContactDetails(ContactDetails contactDetails) {
+
+        String cttEmail = contactDetails.getEmail();
+        String cttPhoneN = contactDetails.getPhoneNumber();
+        String cttFax = contactDetails.getFaxNumber();
+        String cttAddress = contactDetails.getAddress();
+        String cttPostal = contactDetails.getPostalCode();
+        contactDetails.setUpdatedDate(new Date());
+
+        contactDetails.setEmail(cttEmail);
+        contactDetails.setPhoneNumber(cttPhoneN);
+        contactDetails.setFaxNumber(cttFax);
+        contactDetails.setAddress(cttAddress);
+        contactDetails.setPostalCode(cttPostal);
+        contactDetails.setUpdatedDate(new Date());
+
+        return contactDetailsRepository.save(contactDetails);
     }
 }

@@ -24,24 +24,9 @@ public class ContactDetailsController {
         return "Success";
     }
 
-    @PutMapping("update-contact")
+    @PutMapping("update")
     public ContactDetails updateContactDetails(@RequestBody ContactDetails contactDetails) {
-
-        String cttEmail = contactDetails.getEmail();
-        String cttPhoneN = contactDetails.getPhoneNumber();
-        String cttFax = contactDetails.getFaxNumber();
-        String cttAddress = contactDetails.getAddress();
-        String cttPostal = contactDetails.getPostalCode();
-        contactDetails.setUpdatedDate(new Date());
-
-        contactDetails.setEmail(cttEmail);
-        contactDetails.setPhoneNumber(cttPhoneN);
-        contactDetails.setFaxNumber(cttFax);
-        contactDetails.setAddress(cttAddress);
-        contactDetails.setPostalCode(cttPostal);
-        contactDetails.setUpdatedDate(new Date());
-
-        return contactDetails;
+        return contactDetailsService.updateContactDetails(contactDetails);
     }
 
     /*@GetMapping("get")
