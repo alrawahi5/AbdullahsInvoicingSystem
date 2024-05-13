@@ -3,6 +3,8 @@ package com.TRA.tra24Springboot.Controllers;
 import com.TRA.tra24Springboot.Models.Inventory;
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Models.ProductDetails;
+import com.TRA.tra24Springboot.Service.InventoryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -11,40 +13,21 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/Inventory")
+@RequestMapping("Inventory")
 public class InventoryController {
 
     Inventory globalinventory = new Inventory();
-    @GetMapping("add")
-    public Inventory addInventory(){
 
-        Inventory inventory = new Inventory();
-        List product = new ArrayList<>();
-        List workers = new ArrayList<>();
-
-        inventory.setManager("Abdullah");
-        inventory.setLocation("Muscat");
-        inventory.setPhoneNumber("11111");
-        inventory.setId(1);
-        inventory.setProducts(product);
-        inventory.setOpeningHours("9:00am-2:00pm");
-        inventory.setSupplier("Omantel");
-        inventory.setClosingHours("Weekend hours");
-        inventory.setWorkers(workers);
-        inventory.setCreatedDate(new Date());
-        globalinventory = inventory;
-
-        return inventory;
+    @Autowired
+    InventoryService inventoryService;
+    @PostMapping("add")
+    public Inventory addInventory(Inventory inventory){
+        return inventoryService.addInventory(inventory);
     }
 
-    @PostMapping("delete/{id}")
+    @PostMapping("delete")
     public String deleteInventory(@PathVariable Integer id) {
-
-        if (globalinventory.getId().equals(id)) {
-            globalinventory.setIsActive(Boolean.FALSE);
-            System.out.println(globalinventory.toString());
-
-        }
+        inventoryService.deleteInventory(id);
         return "Success!";
     }
 }
