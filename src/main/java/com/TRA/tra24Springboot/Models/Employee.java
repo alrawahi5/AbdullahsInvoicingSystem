@@ -7,7 +7,6 @@ import lombok.Data;
 
 @Data
 @Entity
-@MappedSuperclass
 public class Employee extends BaseEntity {
 
     @OneToOne

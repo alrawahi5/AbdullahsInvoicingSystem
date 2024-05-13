@@ -3,13 +3,20 @@ package com.TRA.tra24Springboot.Controllers;
 import com.TRA.tra24Springboot.Models.ContactDetails;
 import com.TRA.tra24Springboot.Models.Employee;
 import com.TRA.tra24Springboot.Models.User;
+import com.TRA.tra24Springboot.Repository.EmployeeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.Date;
 @RestController
 @RequestMapping("Employee")
 public class EmployeeController {
+
     Employee employee = new Employee();
+
+    @Autowired
+    EmployeeRepository employeeRepository;
 
     @GetMapping("add")
     public Employee addEmployee(){
@@ -19,17 +26,18 @@ public class EmployeeController {
         user.setId(1);
         user.setAccessPrivileges("drx");
 
-        employeeAdded.setId(1);
+        employeeAdded.setId(3);
         employeeAdded.setShift("9:00am");
         employeeAdded.setDepartment("Networks and Security");
         employeeAdded.setLocation("Muscat");
         employeeAdded.setJobTitle("Cyber Security Assistant");
         employeeAdded.setCivilID("1234567");
         employee.setNextOfKin("9:00am");
-        employeeAdded.setUser(user);
+        //employeeAdded.setUser(user);
 
         employee = employeeAdded;
-        return employee;
+        Arrays.asList(employeeAdded);
+        return employeeRepository.save(employeeAdded);
     }
 
     @PostMapping("delete/{id}")

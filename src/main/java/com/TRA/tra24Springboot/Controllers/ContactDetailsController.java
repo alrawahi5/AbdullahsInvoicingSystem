@@ -1,57 +1,31 @@
 package com.TRA.tra24Springboot.Controllers;
 
 import com.TRA.tra24Springboot.Models.ContactDetails;
-import com.TRA.tra24Springboot.Models.Product;
-import com.TRA.tra24Springboot.Models.ProductDetails;
-import com.TRA.tra24Springboot.Models.User;
-import com.TRA.tra24Springboot.Repository.ContactDetailsRepository;
+import com.TRA.tra24Springboot.Service.ContactDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Arrays;
 import java.util.Date;
-
 
 @RestController
 @RequestMapping("contact-details")
 public class ContactDetailsController {
 
-    ContactDetails contactDetails = new ContactDetails();
     @Autowired
-    ContactDetailsRepository contactDetailsRepository;
+    ContactDetailsService contactDetailsService;
 
     @GetMapping("add")
-    public ContactDetails addContactDetails(){
-        ContactDetails contactDetails1 = new ContactDetails();
-
-        contactDetails1.setId(1);
-        contactDetails1.setEmail("abdullah@email.com");
-        contactDetails1.setPhoneNumber("12345678");
-        contactDetails1.setFaxNumber("87654321");
-        contactDetails1.setAddress("Muscat, 124 rd");
-        contactDetails1.setPostalCode("000000000");
-
-        User user = new User();
-
-        contactDetails = contactDetails1;
-        Arrays.asList(contactDetails1);
-       return contactDetailsRepository.save(contactDetails1);
-        //return contactDetails;
+    public ContactDetails addContactDetails(ContactDetails contactDetails) {
+        return contactDetailsService.addContactDetails(contactDetails);
     }
 
-    @PostMapping("delete/{id}")
-    public String deleteProduct(@PathVariable Integer id){
-
-        if(contactDetails.getId().equals(id)){
-            contactDetails.setIsActive(Boolean.FALSE);
-            System.out.println(contactDetails.toString());
-
-        }
-        return "Success!";
+    @PostMapping("delete")
+    public String deleteContactDetails(@RequestParam Integer id){
+        contactDetailsService.deleteContactDetails(id);
+        return "Success";
     }
 
     @PutMapping("update-contact")
-    public ContactDetails updateContactDetails(@RequestBody ContactDetails contactDetails){
+    public ContactDetails updateContactDetails(@RequestBody ContactDetails contactDetails) {
 
         String cttEmail = contactDetails.getEmail();
         String cttPhoneN = contactDetails.getPhoneNumber();
@@ -70,9 +44,9 @@ public class ContactDetailsController {
         return contactDetails;
     }
 
-    @GetMapping("get")
+    /*@GetMapping("get")
     public  ContactDetails reportCotactDetails(){
         return  contactDetails;
-    }
-    }
+    }*/
+}
 
