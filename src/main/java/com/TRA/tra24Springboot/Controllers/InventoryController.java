@@ -26,7 +26,7 @@ public class InventoryController {
     }
 
     @PostMapping("delete")
-    public String deleteInventory(@PathVariable Integer id) {
+    public String deleteInventory(@RequestParam Integer id) {
         inventoryService.deleteInventory(id);
         return "Success!";
     }

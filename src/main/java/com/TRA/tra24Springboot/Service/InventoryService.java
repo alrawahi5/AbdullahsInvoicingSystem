@@ -37,12 +37,12 @@ public class InventoryService {
         return inventoryRepository.save(inventory);
     }
 
-    /*public String deleteInventory(Integer id) {
+    public String deleteInventory(Integer id) {
         Inventory inventory = inventoryRepository.findById(id).get();
         if (inventory.getId().equals(id)) {
             inventory.setIsActive(Boolean.FALSE);
             System.out.println(inventory.toString());
         }
         return "Success!";
-    }*/
+    }
 }
