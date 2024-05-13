@@ -4,6 +4,7 @@ import com.TRA.tra24Springboot.Models.Inventory;
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Models.ProductDetails;
 import com.TRA.tra24Springboot.Service.InventoryService;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,5 +30,10 @@ public class InventoryController {
     public String deleteInventory(@RequestParam Integer id) {
         inventoryService.deleteInventory(id);
         return "Success!";
+    }
+
+    @PutMapping("update")
+    public Inventory updateInventory(@RequestBody Inventory inventory){
+        return inventoryService.updateInventory(inventory);
     }
 }
