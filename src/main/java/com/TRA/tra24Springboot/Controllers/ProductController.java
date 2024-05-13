@@ -31,8 +31,8 @@ public class ProductController {
         return productService.updateProduct(userProduct);
     }
 
-    /*@GetMapping("get")
-    public Product reportProduct() {
-        return globalProduct;
-    }*/
+    @GetMapping("get")
+    public Product reportProduct(Product product) {
+        return productService.reportProduct(product);
+    }
 }
