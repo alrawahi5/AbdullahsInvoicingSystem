@@ -77,4 +77,8 @@ public class InventoryService {
 
         return inventoryRepository.save(inventory);
     }
+
+    public Inventory getInventory(Inventory inventory){
+        return inventoryRepository.save(inventory);
+    }
 }

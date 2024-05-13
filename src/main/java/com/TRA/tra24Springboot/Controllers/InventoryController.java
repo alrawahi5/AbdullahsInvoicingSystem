@@ -36,4 +36,9 @@ public class InventoryController {
     public Inventory updateInventory(@RequestBody Inventory inventory){
         return inventoryService.updateInventory(inventory);
     }
+
+    @GetMapping("get")
+    public Inventory getInventory(Inventory inventory){
+        return inventoryService.getInventory(inventory);
+    }
 }
