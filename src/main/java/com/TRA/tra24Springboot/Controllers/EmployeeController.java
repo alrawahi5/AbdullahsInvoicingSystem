@@ -32,26 +32,7 @@ public class EmployeeController {
 
     @PutMapping("update")
     public Employee updateEmployee(@RequestBody Employee employee){
-
-        String emploShift = employee.getShift();
-        String emploCivilID = employee.getCivilID();
-        String emploDepartment = employee.getDepartment();
-        String emploJobTiltel = employee.getJobTitle();
-        String emploLocatoin = employee.getLocation();
-        String emploNexOfKin = employee.getNextOfKin();
-        User emploUser = employee.getUser();
-        employee.setUpdatedDate(new Date());
-
-        employee.setShift(emploShift);
-        employee.setCivilID(emploCivilID);
-        employee.setDepartment(emploDepartment);
-        employee.setJobTitle(emploJobTiltel);
-        employee.setLocation(emploLocatoin);
-        employee.setNextOfKin(emploNexOfKin);
-        employee.setUser(emploUser);
-        employee.setUpdatedDate(new Date());
-
-        return employee;
+        return employeeService.updateEmployee(employee);
     }
 
     @GetMapping("get")

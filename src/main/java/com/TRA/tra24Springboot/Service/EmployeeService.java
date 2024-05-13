@@ -7,8 +7,10 @@ import com.TRA.tra24Springboot.Repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Arrays;
+import java.util.Date;
 
 @Service
 public class EmployeeService {
@@ -35,5 +37,28 @@ public class EmployeeService {
 
         }
         return "Success!";
+    }
+
+    public Employee updateEmployee(Employee employee){
+
+        String emploShift = employee.getShift();
+        String emploCivilID = employee.getCivilID();
+        String emploDepartment = employee.getDepartment();
+        String emploJobTiltel = employee.getJobTitle();
+        String emploLocatoin = employee.getLocation();
+        String emploNexOfKin = employee.getNextOfKin();
+        User emploUser = employee.getUser();
+        employee.setUpdatedDate(new Date());
+
+        employee.setShift(emploShift);
+        employee.setCivilID(emploCivilID);
+        employee.setDepartment(emploDepartment);
+        employee.setJobTitle(emploJobTiltel);
+        employee.setLocation(emploLocatoin);
+        employee.setNextOfKin(emploNexOfKin);
+        employee.setUser(emploUser);
+        employee.setUpdatedDate(new Date());
+
+        return employeeRepository.save(employee);
     }
 }
