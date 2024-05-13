@@ -4,6 +4,7 @@ import com.TRA.tra24Springboot.Models.ContactDetails;
 import com.TRA.tra24Springboot.Repository.ContactDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -53,5 +54,9 @@ public class ContactDetailsService {
         contactDetails.setUpdatedDate(new Date());
 
         return contactDetailsRepository.save(contactDetails);
+    }
+
+    public  ContactDetails reportCotactDetails(ContactDetails contactDetails){
+        return  contactDetailsRepository.save(contactDetails);
     }
 }

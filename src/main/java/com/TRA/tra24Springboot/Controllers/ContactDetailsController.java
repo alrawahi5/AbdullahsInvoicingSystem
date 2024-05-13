@@ -29,9 +29,9 @@ public class ContactDetailsController {
         return contactDetailsService.updateContactDetails(contactDetails);
     }
 
-    /*@GetMapping("get")
-    public  ContactDetails reportCotactDetails(){
-        return  contactDetails;
-    }*/
+    @GetMapping("get")
+    public  ContactDetails reportCotactDetails(ContactDetails contactDetails){
+        return contactDetailsService.reportCotactDetails(contactDetails);
+    }
 }
 
