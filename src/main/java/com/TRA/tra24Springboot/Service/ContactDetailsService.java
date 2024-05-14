@@ -1,5 +1,6 @@
 package com.TRA.tra24Springboot.Service;
 
+import com.TRA.tra24Springboot.DTO.ContactDetailsDTO;
 import com.TRA.tra24Springboot.Models.ContactDetails;
 import com.TRA.tra24Springboot.Repository.ContactDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +57,7 @@ public class ContactDetailsService {
         return contactDetailsRepository.save(contactDetails);
     }
 
-    public  ContactDetails reportCotactDetails(ContactDetails contactDetails){
-        return  contactDetailsRepository.save(contactDetails);
+    public ContactDetailsDTO reportCotactDetails(ContactDetails contactDetails){
+        return  ContactDetailsDTO.convertToDTO(contactDetails);
     }
 }

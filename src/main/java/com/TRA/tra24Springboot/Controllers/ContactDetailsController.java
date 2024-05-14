@@ -1,5 +1,6 @@
 package com.TRA.tra24Springboot.Controllers;
 
+import com.TRA.tra24Springboot.DTO.ContactDetailsDTO;
 import com.TRA.tra24Springboot.Models.ContactDetails;
 import com.TRA.tra24Springboot.Service.ContactDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class ContactDetailsController {
     }
 
     @GetMapping("get")
-    public  ContactDetails reportCotactDetails(ContactDetails contactDetails){
+    public ContactDetailsDTO reportCotactDetails(ContactDetails contactDetails){
         return contactDetailsService.reportCotactDetails(contactDetails);
     }
 }
