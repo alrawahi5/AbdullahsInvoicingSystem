@@ -23,7 +23,7 @@ public class OrderDOT {
     PaymentType paymentType;
     Date dueDate;
 
-    public static OrderDOT convertToDTO(Order order){
+    public static OrderDOT convertToDTO(Order order) {
         OrderDOT orderDOT = new OrderDOT();
         orderDOT.setProductsOrdered(order.getProductsOrdered());
         orderDOT.setCategoryName(order.getCategoryName());
@@ -36,9 +36,9 @@ public class OrderDOT {
         return orderDOT;
     }
 
-    public static List<OrderDOT> orderDOTS(List<Order> orderList){
+    public static List<OrderDOT> orderDOTS(List<Order> orderList) {
         List<OrderDOT> orderDOTS = new ArrayList<>();
-        for (Order oblFromTheDB: orderList){
+        for (Order oblFromTheDB : orderList) {
             OrderDOT dto = convertToDTO(oblFromTheDB);
             orderDOTS.add(dto);
         }
