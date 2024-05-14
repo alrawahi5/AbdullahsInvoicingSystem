@@ -1,6 +1,7 @@
 package com.TRA.tra24Springboot.Controllers;
 
 import com.TRA.tra24Springboot.Models.Supplier;
+import com.TRA.tra24Springboot.Service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
