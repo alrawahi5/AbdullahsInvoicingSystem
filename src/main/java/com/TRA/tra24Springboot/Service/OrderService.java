@@ -44,7 +44,36 @@ public class OrderService {
         order.setOrderDate(new Date());
 
         return orderRepository.save(order);
+    }
 
+    public String deleteOrder(Integer id){
+        Order order = orderRepository.findById(id).get();
+
+        if(order.getId().equals(id)){
+            order.setIsActive(Boolean.FALSE);
+            System.out.println(order.toString());
+        }
+        return "Success";
+    }
+
+    public Order updateOrder(Order order) {
+
+        Order orderEntity = orderRepository.findById(order.getId()).get();
+        orderEntity = order;
+
+/*      List<Product> productList = order.getProductsOrdered();
+        String orderCatName = order.getCategoryName();
+        OrderStatus orderStatus = order.getStatus();
+        String orderDescription = order.getDescription();
+
+        order.setProductsOrdered(productList);
+        order.setCategoryName(orderCatName);
+        order.setStatus(orderStatus);
+        order.setDescription(orderDescription);*/
+
+        order.setUpdatedDate(new Date());
+
+        return orderRepository.save(orderEntity);
     }
 
     public OrderDOT reportOrders(Order order){
