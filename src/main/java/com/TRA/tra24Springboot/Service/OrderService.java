@@ -22,7 +22,7 @@ public class OrderService {
     @Autowired
     OrderRepository orderRepository;
 
-    public Order addOrder(Order order){
+    public Order addOrder(Order order) {
 
         /*OneToMany
         List<Product> productsOrdered;
@@ -46,10 +46,10 @@ public class OrderService {
         return orderRepository.save(order);
     }
 
-    public String deleteOrder(Integer id){
+    public String deleteOrder(Integer id) {
         Order order = orderRepository.findById(id).get();
 
-        if(order.getId().equals(id)){
+        if (order.getId().equals(id)) {
             order.setIsActive(Boolean.FALSE);
             System.out.println(order.toString());
         }
@@ -76,7 +76,7 @@ public class OrderService {
         return orderRepository.save(orderEntity);
     }
 
-    public OrderDOT reportOrders(Order order){
-        return  OrderDOT.convertToDTO(order);
+    public OrderDOT reportOrders(Order order) {
+        return OrderDOT.convertToDTO(order);
     }
 }
