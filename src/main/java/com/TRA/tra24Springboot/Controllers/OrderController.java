@@ -18,7 +18,7 @@ public class OrderController {
     }
 
     @PutMapping("update")
-    public Order updateOrder(@RequestBody Order order){
+    public Order updateOrder(@RequestBody Order order) {
         return orderService.updateOrder(order);
     }
 
