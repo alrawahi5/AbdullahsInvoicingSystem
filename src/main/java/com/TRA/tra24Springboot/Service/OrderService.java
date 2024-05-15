@@ -2,6 +2,7 @@ package com.TRA.tra24Springboot.Service;
 
 import com.TRA.tra24Springboot.DTO.ContactDetailsDTO;
 import com.TRA.tra24Springboot.DTO.OrderDOT;
+import com.TRA.tra24Springboot.DTO.SupplierDTO;
 import com.TRA.tra24Springboot.Models.*;
 import com.TRA.tra24Springboot.Repository.OrderRepository;
 import com.TRA.tra24Springboot.Repository.ProductRepository;
@@ -76,7 +77,8 @@ public class OrderService {
         return orderRepository.save(orderEntity);
     }
 
-    public OrderDOT reportOrders(Order order) {
-        return OrderDOT.convertToDTO(order);
+    public List<OrderDOT> getOrder(){
+        List <Order> orders = orderRepository.findAll();
+        return OrderDOT.convertToDTO(orders);
     }
 }
