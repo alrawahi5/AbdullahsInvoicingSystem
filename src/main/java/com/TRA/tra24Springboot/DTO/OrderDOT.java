@@ -1,11 +1,7 @@
 package com.TRA.tra24Springboot.DTO;
 
 import com.TRA.tra24Springboot.Models.*;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.OneToMany;
 import lombok.Data;
-import org.aspectj.weaver.ast.Or;
 
 import java.util.ArrayList;
 import java.util.Date;
