@@ -36,7 +36,7 @@ public class OrderDOT {
         return orderDOT;
     }
 
-    public static List<OrderDOT> orderDOTS(List<Order> orderList) {
+    public static List<OrderDOT> convertToDTO(List<Order> orderList) {
         List<OrderDOT> orderDOTS = new ArrayList<>();
         for (Order oblFromTheDB : orderList) {
             OrderDOT dto = convertToDTO(oblFromTheDB);
