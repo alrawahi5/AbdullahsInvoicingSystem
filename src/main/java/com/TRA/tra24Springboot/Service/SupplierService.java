@@ -1,18 +1,13 @@
 package com.TRA.tra24Springboot.Service;
 
-import com.TRA.tra24Springboot.Controllers.SupplierController;
 import com.TRA.tra24Springboot.DTO.SupplierDTO;
 import com.TRA.tra24Springboot.Models.ContactDetails;
 import com.TRA.tra24Springboot.Models.Order;
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Models.Supplier;
 import com.TRA.tra24Springboot.Repository.SupplierRepository;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 import java.util.List;
@@ -99,7 +94,7 @@ public class SupplierService {
     }
 
     public List<SupplierDTO> getSupplier(){
-        List <Supplier> suppliers = supplierRepository.findAll();
+        List<Supplier> suppliers = supplierRepository.findAll();
         return SupplierDTO.convertToDTO(suppliers);
     }
 

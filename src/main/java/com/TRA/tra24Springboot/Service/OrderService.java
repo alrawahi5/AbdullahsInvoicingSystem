@@ -1,14 +1,9 @@
 package com.TRA.tra24Springboot.Service;
 
-import com.TRA.tra24Springboot.DTO.ContactDetailsDTO;
 import com.TRA.tra24Springboot.DTO.OrderDOT;
-import com.TRA.tra24Springboot.DTO.SupplierDTO;
-import com.TRA.tra24Springboot.Models.*;
+import com.TRA.tra24Springboot.Models.Order;
+import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Repository.OrderRepository;
-import com.TRA.tra24Springboot.Repository.ProductRepository;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.OneToMany;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -77,8 +72,8 @@ public class OrderService {
         return orderRepository.save(orderEntity);
     }
 
-    public List<OrderDOT> getOrder(){
-        List <Order> orders = orderRepository.findAll();
+    public List<OrderDOT> getOrder() {
+        List<Order> orders = orderRepository.findAll();
         return OrderDOT.convertToDTO(orders);
     }
 }
