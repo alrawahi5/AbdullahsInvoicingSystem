@@ -1,10 +1,10 @@
 package com.TRA.tra24Springboot.Controllers;
 
+import com.TRA.tra24Springboot.DTO.SupplierDTO;
 import com.TRA.tra24Springboot.Models.Supplier;
 import com.TRA.tra24Springboot.Service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.TRA.tra24Springboot.DTO.SupplierDTO;
 
 import java.util.List;
 
@@ -31,9 +31,10 @@ public class SupplierController {
     public Supplier updateSupplier(@RequestBody Supplier supplier){
         return supplierService.updateSupplier(supplier);
     }
+
     @GetMapping("get")
-    public List<SupplierDTO> getSupplier(){
+    public List<SupplierDTO> getSupplier() {
         return supplierService.getSupplier();
-}
+    }
 }
 
