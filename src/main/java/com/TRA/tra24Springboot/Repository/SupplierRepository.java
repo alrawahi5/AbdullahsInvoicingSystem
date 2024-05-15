@@ -1,9 +1,9 @@
 package com.TRA.tra24Springboot.Repository;
 
-import com.TRA.tra24Springboot.Models.Order;
+import com.TRA.tra24Springboot.Models.Supplier;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.function.Supplier;
 
-public interface SupplierInterface extends JpaRepository<Supplier, Integer> {
+
+public interface SupplierRepository extends JpaRepository<Supplier, Integer> {
 }
