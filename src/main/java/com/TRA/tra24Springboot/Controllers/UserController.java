@@ -1,10 +1,7 @@
 package com.TRA.tra24Springboot.Controllers;
 
-import com.TRA.tra24Springboot.DTO.OrderDOT;
 import com.TRA.tra24Springboot.DTO.UserDTO;
-import com.TRA.tra24Springboot.Models.Order;
 import com.TRA.tra24Springboot.Models.User;
-import com.TRA.tra24Springboot.Service.OrderService;
 import com.TRA.tra24Springboot.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,18 +20,17 @@ public class UserController {
         return userService.adduser(user);
     }
 
-
     @PostMapping("delete")
     public String deleteUser(@RequestParam Integer id) {
         userService.deleteUser(id);
         return "Success";
     }
 
-
     @PutMapping("update")
     public User updateUser(@RequestBody User user) {
         return userService.updateUser(user);
     }
+
     @GetMapping("get")
     public List<UserDTO> getUser() {
         return userService.getUser();
