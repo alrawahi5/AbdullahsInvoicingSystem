@@ -29,12 +29,12 @@ public class UserController {
         return "Success";
     }
 
-    /*
-    @PutMapping("update")
-    public Order updateOrder(@RequestBody Order order) {
-        return orderService.updateOrder(order);
-    }
 
+    @PutMapping("update")
+    public User updateUser(@RequestBody User user) {
+        return userService.updateUser(user);
+    }
+/*
     @GetMapping("get")
     public List<OrderDOT> getOrder() {
         return orderService.getOrder();
