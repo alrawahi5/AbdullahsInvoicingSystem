@@ -1,7 +1,7 @@
 package com.TRA.tra24Springboot.Service;
 
+import com.TRA.tra24Springboot.DTO.UserDTO;
 import com.TRA.tra24Springboot.Models.ContactDetails;
-import com.TRA.tra24Springboot.Models.Order;
 import com.TRA.tra24Springboot.Models.User;
 import com.TRA.tra24Springboot.Models.UserTypes;
 import com.TRA.tra24Springboot.Repository.UserRepository;
@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -47,5 +48,11 @@ public class UserService {
         user.setUpdatedDate(new Date());
 
         return userRepository.save(userEntity);
+    }
+
+
+    public List<UserDTO> getUser() {
+        List<User> users = userRepository.findAll();
+        return UserDTO.convertToDTO(users);
     }
 }
