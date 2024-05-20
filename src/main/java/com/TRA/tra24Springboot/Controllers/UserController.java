@@ -22,15 +22,17 @@ public class UserController {
         return userService.adduser(user);
     }
 
-    /*@PutMapping("update")
-    public Order updateOrder(@RequestBody Order order) {
-        return orderService.updateOrder(order);
-    }
 
     @PostMapping("delete")
-    public String deleteOrder(@RequestParam Integer id) {
-        orderService.deleteOrder(id);
+    public String deleteUser(@RequestParam Integer id) {
+        userService.deleteUser(id);
         return "Success";
+    }
+
+    /*
+    @PutMapping("update")
+    public Order updateOrder(@RequestBody Order order) {
+        return orderService.updateOrder(order);
     }
 
     @GetMapping("get")
