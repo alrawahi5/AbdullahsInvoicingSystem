@@ -8,6 +8,8 @@ import com.TRA.tra24Springboot.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class UserService {
 
@@ -35,5 +37,15 @@ public class UserService {
             System.out.println(user.toString());
         }
         return "Success";
+    }
+
+
+    public User updateUser(User user) {
+
+        User userEntity = userRepository.findById(user.getId()).get();
+        userEntity = user;
+        user.setUpdatedDate(new Date());
+
+        return userRepository.save(userEntity);
     }
 }
