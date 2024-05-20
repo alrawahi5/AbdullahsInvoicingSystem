@@ -1,6 +1,7 @@
 package com.TRA.tra24Springboot.Controllers;
 
 import com.TRA.tra24Springboot.DTO.OrderDOT;
+import com.TRA.tra24Springboot.DTO.UserDTO;
 import com.TRA.tra24Springboot.Models.Order;
 import com.TRA.tra24Springboot.Models.User;
 import com.TRA.tra24Springboot.Service.OrderService;
@@ -34,9 +35,8 @@ public class UserController {
     public User updateUser(@RequestBody User user) {
         return userService.updateUser(user);
     }
-/*
     @GetMapping("get")
-    public List<OrderDOT> getOrder() {
-        return orderService.getOrder();
-    }*/
+    public List<UserDTO> getUser() {
+        return userService.getUser();
+    }
 }
