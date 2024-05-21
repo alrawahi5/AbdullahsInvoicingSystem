@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.PropertyPermission;
 
 @RestController
 @RequestMapping("productDetails")
@@ -22,21 +23,22 @@ public class ProductDetailsController {
         return productDetailsuserService.addProdDetails(productDetails);
     }
 
-    /*@PostMapping("delete")
-    public String deleteUser(@RequestParam Integer id) {
-        userService.deleteUser(id);
+    @PostMapping("delete")
+    public String deleProdDetails(@RequestParam Integer id) {
+        productDetailsuserService.deleProdDetails(id);
         return "Success";
     }
 
     @PutMapping("update")
-    public User updateUser(@RequestBody User user) {
-        return userService.updateUser(user);
+    public ProductDetails updateUserProdDetails(@RequestBody ProductDetails productDetails) {
+        return productDetailsuserService.updateUserProdDetails(productDetails);
     }
 
     @GetMapping("get")
-    public List<UserDTO> getUser() {
-        return userService.getUser();*/
+    public List<ProdDetailsDTO> getProdDetals() {
+        return productDetailsuserService.getProdDetals();
     }
+}
 
 
 
