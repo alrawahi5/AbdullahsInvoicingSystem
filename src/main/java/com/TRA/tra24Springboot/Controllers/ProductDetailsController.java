@@ -36,7 +36,8 @@ public class ProductDetailsController {
 
     @GetMapping("get")
     public List<ProdDetailsDTO> getProdDetals() {
-        return productDetailsuserService.getProdDetals();
+        List<ProductDetails> productDetails = productDetailsuserService.findAll();
+        return ProdDetailsDTO.convertToDTO(productDetails);
     }
 }
 
