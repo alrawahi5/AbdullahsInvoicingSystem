@@ -1,5 +1,6 @@
 package com.TRA.tra24Springboot.Controllers;
 
+import com.TRA.tra24Springboot.DTO.ProdDetailsDTO;
 import com.TRA.tra24Springboot.DTO.UserDTO;
 import com.TRA.tra24Springboot.Models.ProductDetails;
 import com.TRA.tra24Springboot.Models.User;
@@ -35,9 +36,8 @@ public class ProductDetailsController {
     }
 
     @GetMapping("get")
-    public List<ProdDetailsDTO> getProdDetals() {
-        List<ProductDetails> productDetails = productDetailsuserService.findAll();
-        return ProdDetailsDTO.convertToDTO(productDetails);
+    public List<ProdDetailsDTO> getProdDetails() {
+        return productDetailsuserService.getProdDetails();
     }
 }
 
