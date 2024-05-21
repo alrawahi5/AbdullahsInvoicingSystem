@@ -32,7 +32,6 @@ public class UserService {
 
     public String deleteUser(Integer id) {
         User user = userRepository.findById(id).get();
-
         if (user.getId().equals(id)) {
             user.setIsActive(Boolean.FALSE);
             System.out.println(user.toString());
