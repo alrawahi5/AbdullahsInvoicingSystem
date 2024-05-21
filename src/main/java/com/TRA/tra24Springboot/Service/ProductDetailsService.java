@@ -1,5 +1,6 @@
 package com.TRA.tra24Springboot.Service;
 
+import com.TRA.tra24Springboot.DTO.ProdDetailsDTO;
 import com.TRA.tra24Springboot.Models.ProductDetails;
 import com.TRA.tra24Springboot.Models.User;
 import com.TRA.tra24Springboot.Repository.ProductDetailsRepository;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class ProductDetailsService {
@@ -45,5 +47,10 @@ public class ProductDetailsService {
         productDetails.setUpdatedDate(new Date());
 
         return productDetailsRepository.save(prodDetailsEntity);
+    }
+
+    public List<ProdDetailsDTO> getProdDetails() {
+        List<ProductDetails> productDetails = productDetailsRepository.findAll();
+        return ProdDetailsDTO.convertToDTO(productDetails);
     }
 }
