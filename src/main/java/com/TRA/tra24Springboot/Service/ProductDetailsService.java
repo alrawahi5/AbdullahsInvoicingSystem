@@ -1,12 +1,12 @@
 package com.TRA.tra24Springboot.Service;
 
-import com.TRA.tra24Springboot.Models.ContactDetails;
 import com.TRA.tra24Springboot.Models.ProductDetails;
 import com.TRA.tra24Springboot.Models.User;
-import com.TRA.tra24Springboot.Models.UserTypes;
 import com.TRA.tra24Springboot.Repository.ProductDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 
@@ -27,5 +27,23 @@ public class ProductDetailsService {
         productDetails.setDescription("electronics");
         productDetails.setPrice(198.8);
         return productDetailsRepository.save(productDetails);
+    }
+
+    public String deleProdDetails(@RequestParam Integer id) {
+
+        ProductDetails productDetails = productDetailsRepository.findById(id).get();
+        if (productDetails.getId().equals(id)) {
+            productDetails.setIsActive(Boolean.FALSE);
+            System.out.println(productDetails.toString());
+        }
+        return "Success";
+    }
+
+    public ProductDetails updateUserProdDetails(@RequestBody ProductDetails productDetails) {
+        ProductDetails prodDetailsEntity = productDetailsRepository.findById(productDetails.getId()).get();
+        prodDetailsEntity = productDetails;
+        productDetails.setUpdatedDate(new Date());
+
+        return productDetailsRepository.save(prodDetailsEntity);
     }
 }
