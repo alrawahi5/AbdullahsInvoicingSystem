@@ -22,7 +22,8 @@ public class SupplierDTO {
     String paymentMethods;
     String shippingMethods;
     String minimumOrderQuantity;
-    List<Order> orders;
+    List<OrderDOT> orders;
+
 
     public static SupplierDTO convertToDTO(Supplier supplier) {
         SupplierDTO supplierDTO = new SupplierDTO();
@@ -36,7 +37,7 @@ public class SupplierDTO {
         supplierDTO.setPaymentMethods(supplierDTO.getPaymentMethods());
         supplierDTO.setShippingMethods(supplierDTO.getShippingMethods());
         supplierDTO.setMinimumOrderQuantity(supplierDTO.getMinimumOrderQuantity());
-        supplierDTO.setOrders(supplier.getOrders());
+        //supplierDTO.setOrders(supplier.getOrders());
         return supplierDTO;
     }
 
