@@ -35,4 +35,9 @@ public class UserController {
     public List<UserDTO> getUser() {
         return userService.getUser();
     }
+
+    @GetMapping("getByName")
+    public List<User> getByName(@RequestParam String name) {
+        return userService.getUserByName(name);
+    }
 }
