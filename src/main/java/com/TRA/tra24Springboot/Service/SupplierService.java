@@ -1,10 +1,7 @@
 package com.TRA.tra24Springboot.Service;
 
 import com.TRA.tra24Springboot.DTO.SupplierDTO;
-import com.TRA.tra24Springboot.Models.ContactDetails;
-import com.TRA.tra24Springboot.Models.Order;
-import com.TRA.tra24Springboot.Models.Product;
-import com.TRA.tra24Springboot.Models.Supplier;
+import com.TRA.tra24Springboot.Models.*;
 import com.TRA.tra24Springboot.Repository.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -98,6 +95,10 @@ public class SupplierService {
         return SupplierDTO.convertToDTO(suppliers);
     }
 
+    public List<SupplierDTO> getByCompanyName(String cn){
+        List<Supplier> suppliers = supplierRepository.getByCompanyName(cn);
+        return SupplierDTO.convertToDTO(suppliers);
+    }
 
 }
 
