@@ -1,8 +1,11 @@
 package com.TRA.tra24Springboot.Service;
 
 import com.TRA.tra24Springboot.Controllers.ProductController;
+import com.TRA.tra24Springboot.DTO.ProductDTO;
+import com.TRA.tra24Springboot.DTO.SupplierDTO;
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Models.ProductDetails;
+import com.TRA.tra24Springboot.Models.Supplier;
 import com.TRA.tra24Springboot.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -66,5 +70,10 @@ public class ProductService {
 
     public Product reportProduct(Product product) {
         return productRepository.save(product);
+    }
+
+    public List<ProductDTO> getByCategoryyName(String categoryName){
+        List<Product> products = productRepository.getByCategory(categoryName);
+        return ProductDTO.convertToDTO(products);
     }
 }
