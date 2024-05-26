@@ -1,5 +1,7 @@
 package com.TRA.tra24Springboot.Controllers;
 
+import com.TRA.tra24Springboot.DTO.ProductDTO;
+import com.TRA.tra24Springboot.DTO.SupplierDTO;
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Models.ProductDetails;
 import com.TRA.tra24Springboot.Repository.ProductRepository;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -34,5 +37,10 @@ public class ProductController {
     @GetMapping("get")
     public Product reportProduct(Product product) {
         return productService.reportProduct(product);
+    }
+
+    @GetMapping("getByCategory")
+    public List<ProductDTO> getByCategoryyName(@RequestParam String category) {
+        return productService.getByCategoryyName(category);
     }
 }
