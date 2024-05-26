@@ -54,4 +54,8 @@ public class UserService {
         List<User> users = userRepository.findAll();
         return UserDTO.convertToDTO(users);
     }
+
+    public List<User> getUserByName(String name){
+        return userRepository.getByUserName(name);
+    }
 }
