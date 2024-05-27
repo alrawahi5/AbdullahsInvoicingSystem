@@ -1,16 +1,13 @@
 package com.TRA.tra24Springboot.Service;
 
+import com.TRA.tra24Springboot.DTO.IntentoryDTO;
 import com.TRA.tra24Springboot.Models.Inventory;
-import com.TRA.tra24Springboot.Models.Product;
+import com.TRA.tra24Springboot.Models.Supplier;
 import com.TRA.tra24Springboot.Repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -31,7 +28,7 @@ public class InventoryService {
         inventory.setId(1);
         inventory.setProducts(product);
         inventory.setOpeningHours("9:00am-2:00pm");
-        inventory.setSupplier("Omantel");
+        inventory.setSupplier(inventory.getSupplier());
         inventory.setClosingHours("Weekend hours");
         inventory.setWorkers(workers);
         inventory.setCreatedDate(new Date());
@@ -59,7 +56,7 @@ public class InventoryService {
         Integer invId = inventory.getId();
         //List<Product> invProduct = new inventory.getProducts().get(1);
         String invOpenHours = inventory.getOpeningHours();
-        String invSuplier = inventory.getSupplier();
+        Supplier invSuplier = inventory.getSupplier();
         String invCloseHours = inventory.getClosingHours();
 
 
@@ -80,5 +77,9 @@ public class InventoryService {
 
     public Inventory getInventory(Inventory inventory){
         return inventoryRepository.save(inventory);
+    }
+    public List<IntentoryDTO> getByPhoneNumber(String phoneNumber){
+        List<Inventory> inventories = inventoryRepository.getByPhoneNumber(phoneNumber);
+        return IntentoryDTO.convertToDTO(inventories);
     }
 }
