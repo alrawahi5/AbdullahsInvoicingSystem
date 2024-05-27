@@ -1,7 +1,9 @@
 package com.TRA.tra24Springboot.Service;
 
 import com.TRA.tra24Springboot.DTO.ProdDetailsDTO;
+import com.TRA.tra24Springboot.DTO.SupplierDTO;
 import com.TRA.tra24Springboot.Models.ProductDetails;
+import com.TRA.tra24Springboot.Models.Supplier;
 import com.TRA.tra24Springboot.Models.User;
 import com.TRA.tra24Springboot.Repository.ProductDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +53,11 @@ public class ProductDetailsService {
 
     public List<ProdDetailsDTO> getProdDetails() {
         List<ProductDetails> productDetails = productDetailsRepository.findAll();
+        return ProdDetailsDTO.convertToDTO(productDetails);
+    }
+
+    public List<ProdDetailsDTO> getByProductName(String name){
+        List<ProductDetails> productDetails = productDetailsRepository.getByProductName(name);
         return ProdDetailsDTO.convertToDTO(productDetails);
     }
 }
