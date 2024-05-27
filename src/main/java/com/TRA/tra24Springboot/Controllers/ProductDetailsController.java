@@ -1,6 +1,7 @@
 package com.TRA.tra24Springboot.Controllers;
 
 import com.TRA.tra24Springboot.DTO.ProdDetailsDTO;
+import com.TRA.tra24Springboot.DTO.SupplierDTO;
 import com.TRA.tra24Springboot.DTO.UserDTO;
 import com.TRA.tra24Springboot.Models.ProductDetails;
 import com.TRA.tra24Springboot.Models.User;
@@ -38,6 +39,11 @@ public class ProductDetailsController {
     @GetMapping("get")
     public List<ProdDetailsDTO> getProdDetails() {
         return productDetailsuserService.getProdDetails();
+    }
+
+    @GetMapping("getByName")
+    public List<ProdDetailsDTO> getByProductName(@RequestParam String name) {
+        return productDetailsuserService.getByProductName(name);
     }
 }
 
