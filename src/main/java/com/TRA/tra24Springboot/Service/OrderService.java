@@ -1,8 +1,10 @@
 package com.TRA.tra24Springboot.Service;
 
 import com.TRA.tra24Springboot.DTO.OrderDOT;
+import com.TRA.tra24Springboot.DTO.ProdDetailsDTO;
 import com.TRA.tra24Springboot.Models.Order;
 import com.TRA.tra24Springboot.Models.Product;
+import com.TRA.tra24Springboot.Models.ProductDetails;
 import com.TRA.tra24Springboot.Repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -76,4 +78,10 @@ public class OrderService {
         List<Order> orders = orderRepository.findAll();
         return OrderDOT.convertToDTO(orders);
     }
+
+    public List<OrderDOT> getByDescriptione(String description){
+        List<Order> orders = orderRepository.getByDescriptione(description);
+        return OrderDOT.convertToDTO(orders);
+    }
+
 }
