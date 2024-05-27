@@ -1,5 +1,7 @@
 package com.TRA.tra24Springboot.Controllers;
 
+import com.TRA.tra24Springboot.DTO.IntentoryDTO;
+import com.TRA.tra24Springboot.DTO.ProdDetailsDTO;
 import com.TRA.tra24Springboot.Models.Inventory;
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Models.ProductDetails;
@@ -40,5 +42,10 @@ public class InventoryController {
     @GetMapping("get")
     public Inventory getInventory(Inventory inventory){
         return inventoryService.getInventory(inventory);
+    }
+
+    @GetMapping("getByPhoneNumber")
+    public List<IntentoryDTO> getByPhoneNumber(@RequestParam String phoneNumber) {
+        return inventoryService.getByPhoneNumber(phoneNumber);
     }
 }
