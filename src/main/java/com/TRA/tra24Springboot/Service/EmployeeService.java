@@ -1,7 +1,10 @@
 package com.TRA.tra24Springboot.Service;
 
 import com.TRA.tra24Springboot.Controllers.EmployeeController;
+import com.TRA.tra24Springboot.DTO.EmployeeDTO;
+import com.TRA.tra24Springboot.DTO.IntentoryDTO;
 import com.TRA.tra24Springboot.Models.Employee;
+import com.TRA.tra24Springboot.Models.Inventory;
 import com.TRA.tra24Springboot.Models.User;
 import com.TRA.tra24Springboot.Repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class EmployeeService {
@@ -65,5 +69,10 @@ public class EmployeeService {
     public  Employee  reportEmployee(Employee employee){
         //System.out.println("The report of the Emplpyee controller is as follows: ");
         return  employeeRepository.save(employee);
+    }
+
+    public List<EmployeeDTO> getByCivilID(String civilID){
+        List<Employee> employees = employeeRepository.getByCivilID(civilID);
+        return EmployeeDTO.convertToDTO(employees);
     }
 }
