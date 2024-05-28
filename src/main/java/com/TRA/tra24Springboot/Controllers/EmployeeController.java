@@ -1,5 +1,7 @@
 package com.TRA.tra24Springboot.Controllers;
 
+import com.TRA.tra24Springboot.DTO.EmployeeDTO;
+import com.TRA.tra24Springboot.DTO.IntentoryDTO;
 import com.TRA.tra24Springboot.Models.ContactDetails;
 import com.TRA.tra24Springboot.Models.Employee;
 import com.TRA.tra24Springboot.Models.User;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
+
 @RestController
 @RequestMapping("Employee")
 public class EmployeeController {
@@ -39,5 +43,10 @@ public class EmployeeController {
     public  Employee  reportEmployee(Employee employee){
         //System.out.println("The report of the Emplpyee controller is as follows: ");
         return  employeeService.reportEmployee(employee);
+    }
+
+    @GetMapping("getByCivilID")
+    public List<EmployeeDTO> getByCivilID(@RequestParam String civilID) {
+        return employeeService.getByCivilID(civilID);
     }
 }
