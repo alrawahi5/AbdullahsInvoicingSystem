@@ -17,7 +17,7 @@ public class SlackService {
         @Value("${slack.token}")
         private String slackToken;
 
-        @Scheduled(cron = "0 5 * * * *")
+        @Scheduled(cron = "0 0 * * * *")
         public void cronSchudualing(){
             String channel= ""; //#abdullah_channel
             String message = "every 5 minute cron test";
