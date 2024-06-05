@@ -1,16 +1,23 @@
 package com.TRA.tra24Springboot.Service;
 
 import com.TRA.tra24Springboot.DTO.ContactDetailsDTO;
+import com.TRA.tra24Springboot.DTO.EmployeeDTO;
+import com.TRA.tra24Springboot.DTO.IntentoryDTO;
 import com.TRA.tra24Springboot.Models.ContactDetails;
+import com.TRA.tra24Springboot.Models.Employee;
+import com.TRA.tra24Springboot.Models.Inventory;
 import com.TRA.tra24Springboot.Repository.ContactDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class ContactDetailsService {
@@ -60,4 +67,9 @@ public class ContactDetailsService {
     public ContactDetailsDTO reportCotactDetails(ContactDetails contactDetails){
         return  ContactDetailsDTO.convertToDTO(contactDetails);
     }
+
+    public List<ContactDetailsDTO> getByPhoneNumber(String phoneNumber) {
+        List<ContactDetails> contactDetails1 = contactDetailsRepository.getByPhoneNumber(phoneNumber);
+            return ContactDetailsDTO.contactDetailsDTO(contactDetails1);
+        }
 }
