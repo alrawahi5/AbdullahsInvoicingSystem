@@ -10,10 +10,12 @@ import java.util.List;
 public class ContactDetailsDTO {
 
     Integer contactID;
+    Boolean isActive;
 
     public static ContactDetailsDTO convertToDTO(ContactDetails contactDetails) {
         ContactDetailsDTO contactDetailsDTO = new ContactDetailsDTO();
         contactDetailsDTO.setContactID(contactDetails.getId());
+        contactDetailsDTO.setIsActive(contactDetails.getIsActive());
         return contactDetailsDTO;
     }
 
